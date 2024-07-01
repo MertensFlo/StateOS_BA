@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  #push:
+  push:
   pull_request:
   workflow_dispatch:
   repository_dispatch:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   call-build:
-    uses: ./.github/workflows/build_test.yml
+    uses: MertensFlo/StateOS_BA/.github/workflows/build_test.yml@Testing_workflows
   call-example:
     uses: ./.github/workflows/test_test.yml
   call-static-code-test:

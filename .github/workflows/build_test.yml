@@ -4,7 +4,7 @@ on:
     workflow_call:
   
 jobs:
-    run:
+    build:
       name: build test
       runs-on: ubuntu-latest
       steps:

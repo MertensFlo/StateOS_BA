@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  push:
+  #push:
   pull_request:
   workflow_dispatch:
   repository_dispatch:
@@ -9,6 +9,11 @@ on:
     - cron: '0 0 1 * *'
 
 jobs:
-  call-workflow:
+  call-build:
     uses: ./.github/workflows/build_test.yml
-
+  call-example:
+    uses: ./.github/workflows/test_test.yml
+  call-static-code-test:
+    uses: ./.github/workflows/static_code_test.yml
+  call-unit-test:
+    uses: ./.github/workflows/unit_test.yml

@@ -16,13 +16,13 @@ jobs:
     - name: checkout this repo
       uses: actions/checkout@v3
     - name: checkout repos
-      uses: ./.github/workflows/step_checkout_repos.yml@v1
+      uses: ././.github/workflows/step_checkout_repos.yml@v1
     
     - name: install dependencies
-      uses: ./.github/workflows/step_install_dependencies.yml@v1
+      uses: ././.github/workflows/step_install_dependencies.yml@v1
 
     - name: install arm-none-eabi-gcc
-      uses: ./.github/workflows/step_install_arm-none-eabi-gcc.yml@v1
+      uses: ././.github/workflows/step_install_arm-none-eabi-gcc.yml@v1
       
     - name: check arm-none-eabi-gcc version
       run: arm-none-eabi-gcc -v

@@ -1,0 +1,31 @@
+name: reuseable_CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  repository_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  build:
+    name: build test
+    runs-on: ubuntu-latest
+    
+    - name: checkout repos
+    uses: ./.github/workflows/step_checkout_repos.yml
+    
+    - name: install dependencies
+    uses: Mertens_Flo/StateOS_BA/.github/workflows/step_install_dependencies.yml
+
+    - name: install arm-none-eabi-gcc
+    uses: Mertens_Flo/StateOS_BA/.github/workflows/step_install_arm-none-eabi-gcc.yml@v1
+
+    steps:
+    - name: check arm-none-eabi-gcc version
+      run: arm-none-eabi-gcc -v
+    - name: make test
+      run: |
+        cmake -S. -Bbuild -GNinja
+        cmake --build build -v

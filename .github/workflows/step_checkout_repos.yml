@@ -1,0 +1,11 @@
+name: checkout_repos
+
+on:
+    workflow_call:
+
+jobs:
+    steps:
+        - name: checkout repository
+            uses: actions/checkout@v3
+        - name: checkout submodules
+            run: git submodule update --init --remote --recursive

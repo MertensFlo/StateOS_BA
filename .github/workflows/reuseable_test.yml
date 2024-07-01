@@ -10,5 +10,5 @@ on:
 
 jobs:
   call-workflow:
-    uses: MertensFlo/StateOS_BA/.github/workflows/build_test.yml@1
+    uses: ./././.github/workflows/build_test.yml
   

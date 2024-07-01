@@ -10,5 +10,5 @@ on:
 
 jobs:
   call-workflow:
-    uses: ././.github/workflows/build_test.yml
+    uses: ./.github/workflows/build_test.yml
 

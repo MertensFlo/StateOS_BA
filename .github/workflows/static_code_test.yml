@@ -11,10 +11,10 @@ jobs:
     - name: checkout repository
       uses: actions/checkout@v3
     - name: Uses checkout submodules
-      uses: MertensFlo/StateOS_BA/actions/action_checkout_submodul@Testing_workflows
+      uses: MertensFlo/StateOS_BA/.github/actions/action_checkout_submodul@Testing_workflows
     - name: install arm-none-eabi-gcc
-      uses: ./actions/action_install_arm-none-eabi-gcc
+      uses: ./.github/actions/action_install_arm-none-eabi-gcc
     - name: check arm-none-eabi-gcc version
-      uses: ./actions/action_check_installs
+      uses: ./.github/actions/action_check_installs
     - name: make test
       run: bash ./.stdc++-test.sh

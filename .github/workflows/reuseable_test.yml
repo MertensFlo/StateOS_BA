@@ -1,4 +1,4 @@
-name: reuseable_CI
+name: CI
 
 on:
   push:
@@ -9,24 +9,6 @@ on:
     - cron: '0 0 1 * *'
 
 jobs:
-  build:
-    name: build test
-    runs-on: ubuntu-latest
-    steps:
-    - name: checkout this repo
-      uses: actions/checkout@v3
-    - name: checkout repos
-      uses: Mertens_Flo/StateOS/.github/workflows/step_checkout_repos.yml@v1
-    
-    - name: install dependencies
-      uses: Mertens_Flo/StateOS/.github/workflows/step_install_dependencies.yml@v1
-
-    - name: install arm-none-eabi-gcc
-      uses: Mertens_Flo/StateOS/.github/workflows/step_install_arm-none-eabi-gcc.yml@v1
-      
-    - name: check arm-none-eabi-gcc version
-      run: arm-none-eabi-gcc -v
-    - name: make test
-      run: |
-        cmake -S. -Bbuild -GNinja
-        cmake --build build -v
+  call-workflow:
+    uses: MertensFlo/StateOS_BA/.github/workflows/build_test.yml
+  

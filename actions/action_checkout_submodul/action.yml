@@ -2,5 +2,5 @@ runs:
   using: composite
   steps:
   - name: checkout submodules
-    run: git submodule update --init --remote --recursive
     shell: bash
+    run: git submodule update --init --remote --recursive

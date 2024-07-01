@@ -13,16 +13,11 @@ jobs:
       - name: Uses checkout submodules
         uses: MertensFlo/StateOS_BA/actions/action_checkout_submodul@Testing_workflows
       - name: install dependencies
-        run: |
-          sudo apt-get -y -qq update
-          sudo apt-get -y -qq install cmake ninja-build
+        uses: MertensFlo/StateOS_BA/actions/action_install_dependencies@Testing_workflows
       - name: install arm-none-eabi-gcc
-        run: |
-          wget -q https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
-          tar -xf arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
-          echo "${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin" >> $GITHUB_PATH
+        uses: MertensFlo/StateOS_BA/actions/action_install_arm-none-eabi-gcc@Testing_workflows
       - name: check arm-none-eabi-gcc version
-        run: arm-none-eabi-gcc -v
+        uses: ./actions/action_check_installs
       - name: make test
         run: |
           cmake -S. -Bbuild -GNinja

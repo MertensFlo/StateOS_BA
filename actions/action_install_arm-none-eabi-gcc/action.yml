@@ -1,0 +1,9 @@
+runs:
+  using: composite
+  steps:
+  - name:
+    shell: bash
+    run: |
+      wget -q https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
+      tar -xf arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
+      echo "${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin" >> $GITHUB_PATH

@@ -13,7 +13,7 @@ jobs:
       - name: Uses checkout submodules
         uses: MertensFlo/StateOS_BA/actions/action_checkout_submodul@Testing_workflows
       - name: install arm-none-eabi-gcc
-        uses: ./action_install_arm-none-eabi-gcc
+        uses: ./actions/action_install_arm-none-eabi-gcc
       - name: check arm-none-eabi-gcc version
         uses: ./actions/action_check_installs
       - name: make test

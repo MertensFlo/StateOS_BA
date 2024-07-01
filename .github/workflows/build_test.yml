@@ -11,7 +11,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v3
       - name: Uses checkout submodules
-        uses: ./action_checkout_submodules
+        uses: MertensFlo/StateOS_BA/action_checkout_submodules@vTesting_workflows
       - name: install dependencies
         run: |
           sudo apt-get -y -qq update

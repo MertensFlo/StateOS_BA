@@ -1,12 +1,6 @@
 name: build test
 
 on:
-    push:
-    pull_request:
-    workflow_dispatch:
-    repository_dispatch:
-    schedule:
-      - cron: '0 0 1 * *'
     workflow_call:
   
 jobs:

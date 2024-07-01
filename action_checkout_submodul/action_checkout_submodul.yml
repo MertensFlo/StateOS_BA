@@ -1,0 +1,3 @@
+steps:
+  - name: checkout submodules
+    run: git submodule update --init --remote --recursive

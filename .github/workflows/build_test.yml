@@ -10,8 +10,8 @@ jobs:
       steps:
       - name: checkout repository
         uses: actions/checkout@v3
-      - name: checkout submodules
-        run: git submodule update --init --remote --recursive
+      - name: Uses checkout submodules
+        uses: ./action_checkout_submodules
       - name: install dependencies
         run: |
           sudo apt-get -y -qq update

@@ -13,8 +13,8 @@ jobs:
     uses: MertensFlo/StateOS_BA/.github/workflows/build_test.yml@Testing_workflows
     with:
       name: test1
-      buildSystem: ubuntu-latest
-      working_branch: Testing_workflows
+      buildSystemUbuntu: ubuntu-latest
+      workingBranch: Testing_workflows
 
 #  call-example:
 #     uses: ./.github/workflows/test_test.yml

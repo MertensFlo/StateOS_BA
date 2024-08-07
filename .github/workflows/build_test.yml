@@ -5,27 +5,36 @@ on:
     inputs:
       name:
         type: string
+      buildSystem:
+        default: ubuntu-latest
+        type: string
+      branch:
+        default: Testing_workflows
+        type: string
 
   
 jobs:
-    build:
-      name: build test
-      runs-on: ubuntu-latest
-      steps:
-      - name: echo variables
-        run: |
-          echo ${{inputs.name}}
-      - name: checkout repository
-        uses: actions/checkout@v4
-      - name: Uses checkout submodules
-        uses: MertensFlo/StateOS_BA/.github/actions/action_checkout_submodul@Testing_workflows
-      - name: install dependencies
-        uses: MertensFlo/StateOS_BA/.github/actions/action_install_dependencies@Testing_workflows
-      - name: install arm-none-eabi-gcc
-        uses: ./.github/actions/action_install_arm-none-eabi-gcc
-      - name: check arm-none-eabi-gcc version
-        uses: ./.github/actions/action_check_installs
-      - name: make test
-        run: |
-          cmake -S. -Bbuild -GNinja
-          cmake --build build -v
+  build:
+    name: build test
+    runs-on: ${{inputs.buildSystem}}
+    steps:
+    - name: echo variables
+      run: |
+        echo ${{inputs.name}}
+        echo ${{inputs.buildSystem}}
+        echo ${{inputs.branch}}
+    - name: evaluate inputs
+      if: ${{inputs.name}} == test1
+      run: echo if works!!!!!!!!!!!!!!!!!!!!!
+    - name: checkout repository
+      uses: actions/checkout@v4
+    - name: Uses checkout submodules
+      uses: ./.github/actions/action_checkout_submodul@${{inputs.branch}}}
+    - name: install dependencies
+      uses: ./.github/actions/action_install_dependencies@${{inputs.branch}}
+    - name: install arm-none-eabi-gcc
+      uses: ./.github/actions/action_install_arm-none-eabi-gcc
+    - name: check arm-none-eabi-gcc version
+      uses: ./.github/actions/action_check_installs
+    - name: make test
+      uses: ./.github/actions/action_make_test

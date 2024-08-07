@@ -39,7 +39,7 @@ jobs:
         ref: ${{ inputs.workingBranch }}
         
     - name: install dependencies
-      uses: .ref_actions_repo/.github/actions/action_install_dependencies
+      uses: ./ref_actions_repo/.github/actions/action_install_dependencies
     - name: install arm-none-eabi-gcc
       uses: ./.github/actions/action_install_arm-none-eabi-gcc
     - name: check arm-none-eabi-gcc version

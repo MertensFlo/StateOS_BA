@@ -16,5 +16,5 @@ runs:
     run: |
       wget -q ${{env.ARM_WGET_PATH}}
       tar -xf ${{env.ARM_TAR_PATH}}
-      echo "${{github.workspace}}/${{env.ARM_TAR_PATH}}/bin"
-      echo "${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin" >> $GITHUB_PATH
+      echo "${{github.workspace}}/${{env.ARM_TAR_PATH}}/bin" >> $GITHUB_PATH
+  #echo "${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin" >> $GITHUB_PATH

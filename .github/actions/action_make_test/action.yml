@@ -2,6 +2,7 @@ runs:
   using: composite
   steps:
   - name: make test
+    shell: bash
     run: |
       cmake -S. -Bbuild -GNinja
       cmake --build build -v

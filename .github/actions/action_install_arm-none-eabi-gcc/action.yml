@@ -11,7 +11,7 @@ runs:
     run: |      
       echo "ARM_WGET_PATH=https://developer.arm.com/-/media/Files/downloads/gnu/${{inputs.arm_version}}/binrel/arm-gnu-toolchain-${{inputs.arm_version}}-x86_64-arm-none-eabi.tar.xz" >> $GITHUB_ENV
       echo "ARM_TAR_PATH=arm-gnu-toolchain-${{inputs.arm_version}}-x86_64-arm-none-eabi.tar.xz" >> $GITHUB_ENV
-  - name: commands
+  - name: use variables
     shell: bash
     run: |
       wget -q ${{env.ARM_WGET_PATH}}

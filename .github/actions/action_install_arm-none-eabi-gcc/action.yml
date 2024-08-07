@@ -14,9 +14,6 @@ runs:
   - name: use variables
     shell: bash
     run: |
-      echo ${{env.ARM_WGET_PATH}}
-      echo ${{env.ARM_TAG_PATH}}
-      
-    #wget -q https://developer.arm.com/-/media/Files/downloads/gnu/${{inputs.arm_version}}/binrel/arm-gnu-toolchain-${{inputs.arm_version}-x86_64-arm-none-eabi.tar.xz
-     # tar -xf ${{arm_version}}.tar.xz
-     # echo "${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin" >> $GITHUB_PATH
+      wget -q ${{env.ARM_WGET_PATH}}
+      tar -xf ${{env.ARM_TAR_PATH}}
+      echo "${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin" >> $GITHUB_PATH

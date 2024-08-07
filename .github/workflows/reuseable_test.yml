@@ -14,7 +14,7 @@ jobs:
     with:
       name: test1
       buildSystem: ubuntu-latest
-      branch: Testing_workflows
+      working_branch: Testing_workflows
 
 #  call-example:
 #     uses: ./.github/workflows/test_test.yml

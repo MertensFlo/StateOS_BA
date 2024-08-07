@@ -8,7 +8,7 @@ on:
       buildSystem:
         default: ubuntu-latest
         type: string
-      branch:
+      working_branch:
         default: Testing_workflows
         type: string
 
@@ -22,16 +22,16 @@ jobs:
       run: |
         echo ${{inputs.name}}
         echo ${{inputs.buildSystem}}
-        echo ${{inputs.branch}}
+        echo ${{inputs.working_branch}}
     - name: evaluate inputs
       if: ${{inputs.name}} == test1
       run: echo if works!!!!!!!!!!!!!!!!!!!!!
     - name: checkout repository
       uses: actions/checkout@v4
     - name: Uses checkout submodules
-      uses: ./.github/actions/action_checkout_submodul@[${{inputs.branch}}]
+      uses: ./.github/actions/action_checkout_submodul@[${{inputs.working_branch}}]
     - name: install dependencies
-      uses: ./.github/actions/action_install_dependencies@[${{inputs.branch}}]
+      uses: ./.github/actions/action_install_dependencies@[${{inputs.working_branch}}]
     - name: install arm-none-eabi-gcc
       uses: ./.github/actions/action_install_arm-none-eabi-gcc
     - name: check arm-none-eabi-gcc version

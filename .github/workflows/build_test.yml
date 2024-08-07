@@ -26,6 +26,7 @@ jobs:
     - name: evaluate inputs
       if: ${{inputs.name}} == test1
       run: echo if works!!!!!!!!!!!!!!!!!!!!!
+
     - name: checkout repository
       uses: actions/checkout@v4
     - name: Uses checkout submodules
@@ -42,6 +43,8 @@ jobs:
       uses: ./ref_actions_repo/.github/actions/action_install_dependencies
     - name: install arm-none-eabi-gcc
       uses: ./.github/actions/action_install_arm-none-eabi-gcc
+      with:
+        arm_version: 11.3.rel1
     - name: check arm-none-eabi-gcc version
       uses: ./.github/actions/action_check_installs
     - name: make test

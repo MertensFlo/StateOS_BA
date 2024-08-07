@@ -34,7 +34,7 @@ jobs:
     - name: Checkout actions repo
       uses: actions/checkout@v3
       with: 
-        repository: MertensFlo/StateOS-BA
+        repository: MertensFlo/StateOS_BA
         path: ref_actions_repo
         ref: ${{ inputs.workingBranch }}
         

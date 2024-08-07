@@ -11,6 +11,8 @@ on:
 jobs:
   call-build:
     uses: MertensFlo/StateOS_BA/.github/workflows/build_test.yml@Testing_workflows
+    with:
+      name: test1
   call-example:
     uses: ./.github/workflows/test_test.yml
   call-static-code-test:

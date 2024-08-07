@@ -10,7 +10,7 @@ on:
 
 jobs:
   call-build:
-    uses: MertensFlo/StateOS_BA/.github/workflows/pipeline_elements/build_test.yml@Testing_workflows
+    uses: MertensFlo/StateOS_BA/.github/workflows/build_test.yml@Testing_workflows
     with:
       name: test1
 

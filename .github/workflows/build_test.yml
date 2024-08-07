@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       name:
-        type: String
+        type: string
 
   
 jobs:

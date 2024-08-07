@@ -11,7 +11,7 @@ runs:
     run: |      
       echo "ARM_WGET_PATH=https://developer.arm.com/-/media/Files/downloads/gnu/${{inputs.arm_version}}/binrel/arm-gnu-toolchain-${{inputs.arm_version}}-x86_64-arm-none-eabi.tar.xz" >> $GITHUB_ENV
       echo "ARM_TAR_PATH=arm-gnu-toolchain-${{inputs.arm_version}}-x86_64-arm-none-eabi.tar.xz" >> $GITHUB_ENV
-      echo "${{github.workspace}}/${{env.ARM_TAR_PATH}}/bin" >> $GITHUB_PATH
+      echo "${{github.workspace}}/arm-gnu-toolchain-${{inputs.arm_version}}-x86_64-arm-none-eabi.tar.xz/bin" >> $GITHUB_PATH
   - name: commands with variables
     shell: bash
     run: |

@@ -17,4 +17,5 @@ runs:
     run: |
       wget -q ${{env.ARM_WGET_PATH}}
       tar -xf ${{env.ARM_TAR_PATH}}
+      echo ${{env.GPATH}}
       echo ${{env.GPATH}} >> $GITHUB_PATH

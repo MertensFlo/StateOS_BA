@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     name: build test
-    runs-on: ${{inputs.buildSystem}}
+    runs-on: [${{inputs.buildSystem}}]
     steps:
     - name: echo variables
       run: |
@@ -29,9 +29,9 @@ jobs:
     - name: checkout repository
       uses: actions/checkout@v4
     - name: Uses checkout submodules
-      uses: ./.github/actions/action_checkout_submodul@${{inputs.branch}}}
+      uses: ./.github/actions/action_checkout_submodul@[${{inputs.branch}}]
     - name: install dependencies
-      uses: ./.github/actions/action_install_dependencies@${{inputs.branch}}
+      uses: ./.github/actions/action_install_dependencies@[${{inputs.branch}}]
     - name: install arm-none-eabi-gcc
       uses: ./.github/actions/action_install_arm-none-eabi-gcc
     - name: check arm-none-eabi-gcc version

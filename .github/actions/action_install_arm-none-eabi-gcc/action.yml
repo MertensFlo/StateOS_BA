@@ -6,17 +6,16 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: 
+  - name: set variables
     shell: bash
     run: |      
       echo "ARM_WGET_PATH=https://developer.arm.com/-/media/Files/downloads/gnu/${{inputs.arm_version}}/binrel/arm-gnu-toolchain-${{inputs.arm_version}}-x86_64-arm-none-eabi.tar.xz" >> $GITHUB_ENV
       echo "ARM_TAR_PATH=arm-gnu-toolchain-${{inputs.arm_version}}-x86_64-arm-none-eabi.tar.xz" >> $GITHUB_ENV
-  - name:
+  - name: use variables
     shell: bash
     run: |
-
-      echo $ARM_WGET_PATH
-      echo $ARM_TAG_PATH
+      echo ${{env.ARM_WGET_PATH}}
+      echo ${{env.ARM_TAG_PATH}}
       
     #wget -q https://developer.arm.com/-/media/Files/downloads/gnu/${{inputs.arm_version}}/binrel/arm-gnu-toolchain-${{inputs.arm_version}-x86_64-arm-none-eabi.tar.xz
      # tar -xf ${{arm_version}}.tar.xz

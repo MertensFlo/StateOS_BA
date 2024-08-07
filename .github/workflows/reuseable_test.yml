@@ -1,8 +1,5 @@
 name: CI
 
-env:
-
-
 on:
   push:
   pull_request:

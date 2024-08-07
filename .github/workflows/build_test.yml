@@ -34,7 +34,7 @@ jobs:
       with: 
         repository: FloMertens/StateOS-BA/.github/actions/action_install_dependencies
         path: .github
-        ref: @${{ inputs.workingBranch }}
+        ref: ${{ inputs.workingBranch }}
         
     - name: install dependencies
       uses: ./.github/action_install_dependencies

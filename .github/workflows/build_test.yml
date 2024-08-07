@@ -22,6 +22,7 @@ jobs:
         echo ${{inputs.name}}
         echo ${{inputs.buildSystem}}
         echo ${{inputs.workingBranch}}
+        mkdir ref_actions_repo
     - name: evaluate inputs
       if: ${{inputs.name}} == test1
       run: echo if works!!!!!!!!!!!!!!!!!!!!!
@@ -33,12 +34,12 @@ jobs:
     - name: Checkout actions repo
       uses: actions/checkout@v3
       with: 
-        repository: FloMertens/StateOS-BA
-        path: .github
+        repository: MertensFlo/StateOS-BA
+        path: ref_actions_repo
         ref: ${{ inputs.workingBranch }}
         
     - name: install dependencies
-      uses: ./.github/action_install_dependencies
+      uses: .ref_actions_repo/.github/actions/action_install_dependencies
     - name: install arm-none-eabi-gcc
       uses: ./.github/actions/action_install_arm-none-eabi-gcc
     - name: check arm-none-eabi-gcc version

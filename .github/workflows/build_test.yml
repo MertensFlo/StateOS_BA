@@ -12,6 +12,9 @@ jobs:
       name: build test
       runs-on: ubuntu-latest
       steps:
+      - name: echo variables
+        run: |
+          echo ${{inputs.name}}
       - name: checkout repository
         uses: actions/checkout@v4
       - name: Uses checkout submodules

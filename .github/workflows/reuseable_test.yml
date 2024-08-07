@@ -10,12 +10,15 @@ on:
 
 jobs:
   call-build:
-    uses: MertensFlo/StateOS_BA/.github/workflows/build_test.yml@Testing_workflows
+    uses: MertensFlo/StateOS_BA/.github/workflows/pipeline_elements/build_test.yml@Testing_workflows
     with:
       name: test1
+
   call-example:
-    uses: ./.github/workflows/test_test.yml
+    uses: ./.github/workflows/pipeline_elements/test_test.yml
+
   call-static-code-test:
-    uses: ./.github/workflows/static_code_test.yml
+    uses: ./.github/workflows/pipeline_elements/static_code_test.yml
+
   call-unit-test:
-    uses: ./.github/workflows/unit_test.yml
+    uses: ./.github/workflows/pipeline_elements/unit_test.yml

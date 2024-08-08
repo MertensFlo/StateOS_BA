@@ -24,7 +24,12 @@ jobs:
         path: current_workflows
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          /*
+          test
+          examples
+          include
+          src
+          stdc++
+          common
           
     - name: validate
       shell: bash

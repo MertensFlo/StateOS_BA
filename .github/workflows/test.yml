@@ -43,13 +43,13 @@ jobs:
             .github/actions
           sparse-checkout-cone-mode: false
 
-      - name: install arm-none-eabi-gcc
+      - name: installs
         if: ${{inputs.workingRepo}} == StateOS_BA 
-        uses: ./ref_actions_repo/.github/actions/action_install_arm-none-eabi-gcc
+        uses: ./ref_actions_repo/.github/actions/action_extra_installs
         with:
           arm_version: ${{ inputs.arm_version}}
 
-      - name: check arm-none-eabi-gcc version
+      - name: check installs versions
         uses: ./ref_actions_repo/.github/actions/action_check_installs
 
       - name: make example test

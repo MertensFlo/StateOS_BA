@@ -31,7 +31,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
         with: 
-          submodules: 'true'
+          submodules: true
       #- name: Uses checkout submodules
       #  uses: ./.github/actions/action_checkout_submodul
       - name: Checkout actions repo for wanted branch

@@ -23,7 +23,7 @@ jobs:
         repository: MertensFlo/StateOS_BA
         ref: ${{ inputs.workingBranch }}
         patterns: |
-          .github\workflows\*
+          .github/workflows
       
     - name: validate
       shell: bash

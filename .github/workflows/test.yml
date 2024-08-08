@@ -43,23 +43,25 @@ jobs:
             .github/actions
           sparse-checkout-cone-mode: false
 
-      - name: installs
-        if: ${{inputs.workingRepo}} == StateOS_BA 
-        uses: ./ref_actions_repo/.github/actions/action_extra_installs
+      - name: test specific comands
+        if: ${{inputs.workingRepo}} == StateOS_BA
+        uses: ./ref_actions_repo/.github/actions/action_build_specific_commands
         with:
           arm_version: ${{ inputs.arm_version}}
-
-      - name: check installs versions
-        uses: ./ref_actions_repo/.github/actions/action_check_installs
+  
+      - name: checks
+        uses: ./ref_actions_repo/.github/actions/action_checks
 
       - name: make example test
         if: ${{inputs.current_test_element == 'example' && true}}
         #uses: ./ref_actions_repo/.github/actions/action_example_test
         run: echo example
+
       - name: make static test
         if: ${{inputs.current_test_element == 'static' || false}}
         #uses: ./ref_actions_repo/.github/actions/action_static_code_test
         run: echo static
+        
       - name: make unit test
         if: ${{inputs.current_test_element == 'unit'}}
         #uses: ./ref_actions_repo/.github/actions/action_unit_test

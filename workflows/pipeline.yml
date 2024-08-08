@@ -24,8 +24,7 @@ jobs:
         path: current_workflows
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          workflows
-        sparse-checkout-cone-mode: false
+          .github
           
     - name: validate
       shell: bash
@@ -35,7 +34,7 @@ jobs:
         ls
 
     - name: call reuseable pipeline
-      uses: ./current_workflows/workflows/build_test.yml
+      uses: ./current_workflows/.github/workflows/build_test.yml
       with:
         name: ${{inputs.name}}
         buildSystem: ${{inputs.buildSystem}}

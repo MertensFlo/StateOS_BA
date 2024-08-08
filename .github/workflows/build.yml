@@ -17,12 +17,6 @@ jobs:
     name: build test
     runs-on: ${{ (inputs.buildSystem)}}
     steps:
-    - name: echo variables
-      run: |
-        echo ${{inputs.name}}
-        echo ${{inputs.buildSystem}}
-        echo ${{inputs.workingBranch}}
-        mkdir ref_actions_repo
     - name: evaluate inputs
       if: ${{inputs.name}} == test1
       run: echo if works!!!!!!!!!!!!!!!!!!!!!
@@ -40,7 +34,10 @@ jobs:
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
           .github/actions
-        
+    - name:
+      run: |
+        cd ref_actions_repo
+        ls
     - name: install dependencies
       uses: ./ref_actions_repo/action_install_dependencies
     - name: install arm-none-eabi-gcc

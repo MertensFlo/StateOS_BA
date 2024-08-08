@@ -1,12 +1,6 @@
 name: CI
 
 on:
-  push:
-  pull_request:
-  workflow_dispatch:
-  repository_dispatch:
-  schedule:
-    - cron: '0 0 1 * *'
   workflow_call:
     inputs:
       name:
@@ -17,7 +11,7 @@ on:
       workingBranch:
         default: Testing_workflows
         type: string
-
+  
 jobs:
   call-build:
     name: checkout repos
@@ -32,6 +26,7 @@ jobs:
         repository: MertensFlo/StateOS_BA/.github/workflows
         path: .github/current_workflows
         ref: ${{ inputs.workingBranch }}
+
     - name: call reuseable pipeline
       uses: ./.github/current_workflows/build_test.yml
       with:

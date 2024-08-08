@@ -9,7 +9,7 @@ on:
     - cron: '0 0 1 * *'
 
 jobs:
-  call-build:
+  call-pipeline:
     uses: MertensFlo/StateOS_BA/.github/workflows/pipeline.yml@Testing_workflows
     with:
       name: test1

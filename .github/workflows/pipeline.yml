@@ -24,12 +24,7 @@ jobs:
         path: current_workflows
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          test
-          examples
-          include
-          src
-          stdc++
-          common
+          .github
           
     - name: validate
       shell: bash
@@ -37,8 +32,6 @@ jobs:
         ls
         cd current_workflows
         ls
-
-
 
     - name: call reuseable pipeline
       uses: ./current_workflows/.github/workflows/build_test.yml

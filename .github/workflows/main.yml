@@ -12,6 +12,6 @@ jobs:
   call-pipeline:
     uses: MertensFlo/StateOS_BA/.github/workflows/pipeline.yml@Testing_workflows
     with:
-      name: test1
+      name: StateOS
       buildSystem: ubuntu-latest
       workingBranch: Testing_workflows

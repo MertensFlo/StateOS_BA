@@ -33,6 +33,8 @@ jobs:
         ls
         cd current_workflows
         ls
+        cd workflows
+        ls
 
     - name: call reuseable pipeline
       uses: ./current_workflows/workflows/build_test.yml

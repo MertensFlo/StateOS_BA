@@ -2,19 +2,60 @@ name: install_arm-none-eabi-gcc
 
 on:
   workflow_call:
+    inputs:
+      name:
+        type: string
+      buildSystem:
+        default: ubuntu-latest
+        type: string
+      workingBranch:
+        default: Testing_workflows
+        type: string
+      workingRepo:
+        default: StateOS_BA
+        type: string
+      workingOrg:
+        default: MertensFlo
+        type: string
+      arm_version:
+        default: 11.3.rel1
+        type: string
+      current_test_element:
+        type: string
 
 jobs:
   example:
     name: example test
-    runs-on: ubuntu-latest
+    runs-on: ${{ (inputs.buildSystem)}}
     steps:
-    - name: checkout repository
-      uses: actions/checkout@v3
-    - name: Uses checkout submodules
-      uses: MertensFlo/StateOS_BA/.github/actions/action_checkout_submodul@Testing_workflows
-    - name: install arm-none-eabi-gcc
-      uses: ./.github/actions/action_install_arm-none-eabi-gcc
-    - name: check arm-none-eabi-gcc version
-      uses: ./.github/actions/action_check_installs
-    - name: make test
-      run: bash ./.example-test.sh
+      - name: checkout repository
+        uses: actions/checkout@v4
+        with: 
+          submodules: 'true'
+      #- name: Uses checkout submodules
+      #  uses: ./.github/actions/action_checkout_submodul
+      - name: Checkout actions repo for wanted branch
+        uses: actions/checkout@v4
+        with: 
+          repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
+          path: ref_actions_repo
+          ref: ${{ inputs.workingBranch }}
+          sparse-checkout: |
+            .github/actions
+          sparse-checkout-cone-mode: false
+      - name: install arm-none-eabi-gcc
+        if: ${{inputs.name}} == StateOS
+        uses: ./ref_actions_repo/.github/actions/action_install_arm-none-eabi-gcc
+        with:
+          arm_version: ${{ inputs.arm_version}}
+      - name: check arm-none-eabi-gcc version
+        uses: ./ref_actions_repo/.github/actions/action_check_installs
+      - name: make example test
+        if: ${{inputs.current_test_element}} == example
+        uses: ./ref_actions_repo/.github/actions/action_make_test
+      - name: make static test
+        if: ${{inputs.current_test_element}} == static
+        uses: ./ref_actions_repo/.github/actions/action_static_code_test
+      - name: make unit test
+        if: ${{inputs.current_test_element}} == unit
+        uses: ./ref_actions_repo/.github/actions/action_unit_test

@@ -11,6 +11,15 @@ on:
       workingBranch:
         default: Testing_workflows
         type: string
+      example_test:
+        default: true
+        type: boolean
+      static_test:
+        default: true
+        type: boolean
+      unit_test:
+        default: true
+        type: boolean
   
 jobs:
   call-build:
@@ -20,11 +29,29 @@ jobs:
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
 
-#  call-example:
-#     uses: ./.github/workflows/test.yml
-#
-#  call-static-code-test:
-#    uses: ./.github/workflows/static_code_test.yml
-#
-# call-unit-test:
-#    uses: ./.github/workflows/unit_test.yml
+  call-example:
+    if: ${{inputs.example_test}}
+    uses: ./.github/workflows/example_test.yml
+    with:
+      name: ${{inputs.name}}
+      buildSystem: ${{inputs.buildSystem}}
+      workingBranch: ${{inputs.workingBranch}}
+      current_test_element: example
+
+  call-static-code-test:
+    if: ${{inputs.example_test}}
+    uses: ./.github/workflows/static_code_test.yml
+    with:
+      name: ${{inputs.name}}
+      buildSystem: ${{inputs.buildSystem}}
+      workingBranch: ${{inputs.workingBranch}}
+      current_test_element: static
+
+  call-unit-test:
+    if: ${{inputs.example_test}}
+    uses: ./.github/workflows/unit_test.yml
+    with:
+      name: ${{inputs.name}}
+      buildSystem: ${{inputs.buildSystem}}
+      workingBranch: ${{inputs.workingBranch}}
+      current_test_element: unit

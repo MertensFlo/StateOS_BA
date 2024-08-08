@@ -14,30 +14,14 @@ on:
   
 jobs:
   call-build:
-    name: checkout repos
-    runs-on: ${{ (inputs.buildSystem)}}
-    steps:
-    - name: Checkout actions repo
-      uses: actions/checkout@v3
-      with: 
-        repository: MertensFlo/StateOS_BA
-        ref: ${{ inputs.workingBranch }}
-    - name: validate checkout
-      run: |
-        pwd
-        cd .github
-        ls  
-        cd workflows
-        ls
-    - name: call reuseable pipeline
-      uses: ./.github/workflows/reuseable_build.yml
-      with:
-        name: ${{inputs.name}}
-        buildSystem: ${{inputs.buildSystem}}
-        workingBranch: ${{inputs.workingBranch}}
+    uses: ./.github/workflows/build.yml
+    with:
+      name: ${{inputs.name}}
+      buildSystem: ${{inputs.buildSystem}}
+      workingBranch: ${{inputs.workingBranch}}
 
 #  call-example:
-#     uses: ./.github/workflows/test_test.yml
+#     uses: ./.github/workflows/test.yml
 #
 #  call-static-code-test:
 #    uses: ./.github/workflows/static_code_test.yml

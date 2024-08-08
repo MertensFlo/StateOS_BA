@@ -38,9 +38,11 @@ jobs:
         repository: MertensFlo/StateOS_BA
         path: ref_actions_repo
         ref: ${{ inputs.workingBranch }}
+        sparse-checkout: |
+          .github/actions
         
     - name: install dependencies
-      uses: ./ref_actions_repo/.github/actions/action_install_dependencies
+      uses: ./ref_actions_repo/action_install_dependencies
     - name: install arm-none-eabi-gcc
       uses: ./.github/actions/action_install_arm-none-eabi-gcc
       with:

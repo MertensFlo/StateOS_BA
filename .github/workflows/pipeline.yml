@@ -19,7 +19,8 @@ jobs:
     steps:
     - name: setup
       run: |
-        mkdir .github/current_workflows
+        mkdir .github
+        mkdir .github\current_workflows
     - name: Checkout actions repo
       uses: actions/checkout@v3
       with: 

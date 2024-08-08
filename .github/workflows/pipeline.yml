@@ -17,16 +17,14 @@ jobs:
     name: checkout repos
     runs-on: ${{ (inputs.buildSystem)}}
     steps:
-
-
     - name: Checkout actions repo
       uses: actions/checkout@v3
       with: 
         repository: MertensFlo/StateOS_BA
-        path: workflows
+        
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          .github
+          .github\workflows
         sparse-checkout-cone-mode: false
           
     - name: validate
@@ -37,7 +35,7 @@ jobs:
         ls
 
     - name: call reuseable pipeline
-      uses: ./workflows/workflows/build_test.yml
+      uses: ./build_test.yml
       with:
         name: ${{inputs.name}}
         buildSystem: ${{inputs.buildSystem}}

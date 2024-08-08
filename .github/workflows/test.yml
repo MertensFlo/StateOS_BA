@@ -51,14 +51,14 @@ jobs:
       - name: check arm-none-eabi-gcc version
         uses: ./ref_actions_repo/.github/actions/action_check_installs
       - name: make example test
-        if: ${{inputs.current_test_element}} == example
+        if: ${{inputs.current_test_element == 'example'}} 
         #uses: ./ref_actions_repo/.github/actions/action_example_test
         run: echo example
       - name: make static test
-        if: ${{inputs.current_test_element}} == static
+        if: ${{inputs.current_test_element == 'static'}}
         run: echo static
         #uses: ./ref_actions_repo/.github/actions/action_static_code_test
       - name: make unit test
-        if: ${{inputs.current_test_element}} == unit
+        if: ${{inputs.current_test_element == 'unit'}} 
         #uses: ./ref_actions_repo/.github/actions/action_unit_test
         run: echo unit

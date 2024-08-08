@@ -12,13 +12,13 @@ on:
         default: Testing_workflows
         type: string
       example_test:
-        default: true
+        default: false
         type: boolean
       static_test:
-        default: true
+        default: false
         type: boolean
       unit_test:
-        default: true
+        default: false
         type: boolean
   
 jobs:
@@ -30,7 +30,7 @@ jobs:
       workingBranch: ${{inputs.workingBranch}}
 
   call-example:
-    #needs: call-build
+    needs: call-build
     if: ${{inputs.example_test}}
     uses: ./.github/workflows/test.yml
     with:
@@ -40,7 +40,7 @@ jobs:
       current_test_element: example
 
   call-static-code-test:
-    #needs: call-example
+    needs: call-example
     if: ${{inputs.static_test}}
     uses: ./.github/workflows/test.yml
     with:
@@ -50,7 +50,7 @@ jobs:
       current_test_element: static
 
   call-unit-test:
-    #needs: call-static-code-test
+    needs: call-static-code-test
     if: ${{inputs.unit_test}}
     uses: ./.github/workflows/test.yml
     with:

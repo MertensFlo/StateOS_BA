@@ -11,6 +11,10 @@ on:
       workingBranch:
         default: Testing_workflows
         type: string
+      workingRepo:
+        type: string
+      workingOrg:
+        type: string
       example_test:
         default: false
         type: boolean
@@ -28,6 +32,8 @@ jobs:
       name: ${{inputs.name}}
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
+      workingRepo: ${{inputs.workingRepo}}
+      workingOrg: ${{inputs.workingOrg}}
 
   call-example:
     needs: call-build

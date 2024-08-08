@@ -15,6 +15,9 @@ jobs:
       name: StateOS
       buildSystem: ubuntu-latest
       workingBranch: Testing_workflows
+      workingRepo: StateOS_BA
+      workingOrg: MertensFlo
       example_test: true
       static_test: true
       unit_test: true
+      

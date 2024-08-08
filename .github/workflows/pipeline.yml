@@ -24,6 +24,7 @@ jobs:
         ref: ${{ inputs.workingBranch }}
     - name: validate checkout
       run: |
+        cd .github
         ls
     - name: call reuseable pipeline
       uses: ./.github/workflows/reuseable_build.yml

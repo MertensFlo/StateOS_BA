@@ -30,7 +30,7 @@ jobs:
         cd workflows
         ls
     - name: call reuseable pipeline
-      uses: ./../.github/workflows/reuseable_build.yml
+      uses: ./.github/workflows/reuseable_build.yml
       with:
         name: ${{inputs.name}}
         buildSystem: ${{inputs.buildSystem}}

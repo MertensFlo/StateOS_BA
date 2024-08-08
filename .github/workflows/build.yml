@@ -3,8 +3,6 @@ name: build test
 on:
   workflow_call:
     inputs:
-      name:
-        type: string
       buildSystem:
         default: ubuntu-latest
         type: string
@@ -32,7 +30,7 @@ jobs:
         submodules: 'true'
     #- name: Uses checkout submodules
     #  uses: ./.github/actions/action_checkout_submodul
-    
+
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4
       with: 
@@ -47,7 +45,7 @@ jobs:
       uses: ./ref_actions_repo/.github/actions/action_install_dependencies
 
     - name: install arm-none-eabi-gcc
-      if: ${{inputs.name}} == StateOS
+      if: ${{inputs.workingRepo}} == StateOS_BA
       uses: ./ref_actions_repo/.github/actions/action_install_arm-none-eabi-gcc
       with:
         arm_version: ${{ inputs.arm_version}}

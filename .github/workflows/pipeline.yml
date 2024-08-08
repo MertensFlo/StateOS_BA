@@ -3,8 +3,6 @@ name: CI
 on:
   workflow_call:
     inputs:
-      name:
-        type: string
       buildSystem:
         default: ubuntu-latest
         type: string
@@ -29,7 +27,6 @@ jobs:
   call-build:
     uses: ./.github/workflows/build.yml
     with:
-      name: ${{inputs.name}}
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
       workingRepo: ${{inputs.workingRepo}}
@@ -40,9 +37,10 @@ jobs:
     if: ${{inputs.example_test}}
     uses: ./.github/workflows/test.yml
     with:
-      name: ${{inputs.name}}
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
+      workingRepo: ${{inputs.workingRepo}}
+      workingOrg: ${{inputs.workingOrg}}
       current_test_element: example
 
   call-static-code-test:
@@ -50,9 +48,10 @@ jobs:
     if: ${{inputs.static_test}}
     uses: ./.github/workflows/test.yml
     with:
-      name: ${{inputs.name}}
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
+      workingRepo: ${{inputs.workingRepo}}
+      workingOrg: ${{inputs.workingOrg}}
       current_test_element: static
 
   call-unit-test:
@@ -60,7 +59,8 @@ jobs:
     if: ${{inputs.unit_test}}
     uses: ./.github/workflows/test.yml
     with:
-      name: ${{inputs.name}}
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
+      workingRepo: ${{inputs.workingRepo}}
+      workingOrg: ${{inputs.workingOrg}}
       current_test_element: unit

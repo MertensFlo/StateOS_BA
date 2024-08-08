@@ -15,3 +15,6 @@ jobs:
       name: StateOS
       buildSystem: ubuntu-latest
       workingBranch: Testing_workflows
+      example_test: true
+      static_test: true
+      unit_test: true

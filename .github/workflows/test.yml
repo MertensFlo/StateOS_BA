@@ -52,7 +52,7 @@ jobs:
         uses: ./ref_actions_repo/.github/actions/action_check_installs
       - name: make example test
         if: ${{inputs.current_test_element}} == example
-        uses: ./ref_actions_repo/.github/actions/action_make_test
+        uses: ./ref_actions_repo/.github/actions/action_example_test
       - name: make static test
         if: ${{inputs.current_test_element}} == static
         uses: ./ref_actions_repo/.github/actions/action_static_code_test

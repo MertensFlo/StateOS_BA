@@ -53,14 +53,14 @@ jobs:
         uses: ./ref_actions_repo/.github/actions/action_check_installs
 
       - name: make example test
-        if: (${{inputs.current_test_element == 'example'}} && false)
+        if: ${{inputs.current_test_element == 'example' && true}}
         #uses: ./ref_actions_repo/.github/actions/action_example_test
         run: echo example
       - name: make static test
-        if: (${{inputs.current_test_element == 'static'}} * false)
+        if: ${{inputs.current_test_element == 'static' || false}}
         #uses: ./ref_actions_repo/.github/actions/action_static_code_test
         run: echo static
       - name: make unit test
-        if: (${{inputs.current_test_element == 'unit'}} + false)
+        if: ${{inputs.current_test_element == 'unit'}}
         #uses: ./ref_actions_repo/.github/actions/action_unit_test
         run: echo unit

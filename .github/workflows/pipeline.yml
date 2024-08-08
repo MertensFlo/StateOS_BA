@@ -29,9 +29,6 @@ jobs:
           
     - name: validate
       run: |
-        cd workflows
-        ls
-        cd ../
         ls
 
     - name: call reuseable pipeline

@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  repository_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_call:
+    inputs:
+      name:
+        type: string
+      buildSystem:
+        default: ubuntu-latest
+        type: string
+      workingBranch:
+        default: Testing_workflows
+        type: string
+
+jobs:
+  call-build:
+    name: checkout repos
+    runs-on: ${{ (inputs.buildSystem)}}
+    steps:
+    - name: setup
+      run: |
+        mkdir .github/current_workflows
+    - name: Checkout actions repo
+      uses: actions/checkout@v3
+      with: 
+        repository: MertensFlo/StateOS_BA/.github/workflows
+        path: .github/current_workflows
+        ref: ${{ inputs.workingBranch }}
+    - name: call reuseable pipeline
+      uses: ./.github/current_workflows/build_test.yml
+      with:
+        name: ${{inputs.name}}
+        buildSystem: ${{inputs.buildSystem}}
+        workingBranch: ${{inputs.workingBranch}}
+
+#  call-example:
+#     uses: ./.github/workflows/test_test.yml
+#
+#  call-static-code-test:
+#    uses: ./.github/workflows/static_code_test.yml
+#
+# call-unit-test:
+#    uses: ./.github/workflows/unit_test.yml

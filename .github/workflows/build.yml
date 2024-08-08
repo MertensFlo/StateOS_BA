@@ -12,7 +12,7 @@ on:
         default: Testing_workflows
         type: string
       workingRepo:
-        default: StateOS
+        default: StateOS_BA
         type: string
       workingOrg:
         default: MertensFlo

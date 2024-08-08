@@ -22,9 +22,9 @@ jobs:
       with: 
         repository: MertensFlo/StateOS_BA
         ref: ${{ inputs.workingBranch }}
-        
+
     - name: call reuseable pipeline
-      uses: ./github/workflows/build.yml
+      uses: ./.github/workflows/build.yml
       with:
         name: ${{inputs.name}}
         buildSystem: ${{inputs.buildSystem}}

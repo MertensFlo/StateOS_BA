@@ -24,7 +24,7 @@ jobs:
         ref: ${{ inputs.workingBranch }}
 
     - name: call reuseable pipeline
-      uses: ./.github/workflows/build.yml
+      uses: ./.github/workflows/reuseable_build.yml
       with:
         name: ${{inputs.name}}
         buildSystem: ${{inputs.buildSystem}}

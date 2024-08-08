@@ -44,14 +44,14 @@ jobs:
     - name: install dependencies
       uses: ./ref_actions_repo/.github/actions/action_install_dependencies
 
-    - name: installs
+    - name: build specific
       if: ${{inputs.workingRepo}} == StateOS_BA
-      uses: ./ref_actions_repo/.github/actions/action_extra_installs
+      uses: ./ref_actions_repo/.github/actions/action_build_specific_commands
       with:
         arm_version: ${{ inputs.arm_version}}
 
-    - name: check installs versions
-      uses: ./ref_actions_repo/.github/actions/action_check_installs
+    - name: checks
+      uses: ./ref_actions_repo/.github/actions/action_checks
 
     - name: make build
       uses: ./ref_actions_repo/.github/actions/action_make_build

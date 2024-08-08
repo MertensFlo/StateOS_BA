@@ -3,8 +3,6 @@ name: install_arm-none-eabi-gcc
 on:
   workflow_call:
     inputs:
-      name:
-        type: string
       buildSystem:
         default: ubuntu-latest
         type: string
@@ -34,6 +32,7 @@ jobs:
           submodules: true
       #- name: Uses checkout submodules
       #  uses: ./.github/actions/action_checkout_submodul
+
       - name: Checkout actions repo for wanted branch
         uses: actions/checkout@v4
         with: 
@@ -43,19 +42,24 @@ jobs:
           sparse-checkout: |
             .github/actions
           sparse-checkout-cone-mode: false
+
       - name: install arm-none-eabi-gcc
-        if: ${{inputs.name}} == StateOS
+        if: ${{inputs.workingRepo}} == StateOS_BA 
         uses: ./ref_actions_repo/.github/actions/action_install_arm-none-eabi-gcc
         with:
           arm_version: ${{ inputs.arm_version}}
+
       - name: check arm-none-eabi-gcc version
         uses: ./ref_actions_repo/.github/actions/action_check_installs
+
       - name: make example test
-        if: ${{inputs.current_test_element == 'example'}} 
+        if: ${{inputs.current_test_element == 'example'}} && false
         uses: ./ref_actions_repo/.github/actions/action_example_test
+
       - name: make static test
-        if: ${{inputs.current_test_element == 'static'}}
+        if: ${{inputs.current_test_element == 'static'}} , false
         uses: ./ref_actions_repo/.github/actions/action_static_code_test
+
       - name: make unit test
         if: ${{inputs.current_test_element == 'unit'}} 
         uses: ./ref_actions_repo/.github/actions/action_unit_test

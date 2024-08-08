@@ -32,6 +32,7 @@ jobs:
         submodules: 'true'
     #- name: Uses checkout submodules
     #  uses: ./.github/actions/action_checkout_submodul
+    
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4
       with: 
@@ -41,15 +42,19 @@ jobs:
         sparse-checkout: |
           .github/actions
         sparse-checkout-cone-mode: false
+
     - name: install dependencies
       uses: ./ref_actions_repo/.github/actions/action_install_dependencies
+
     - name: install arm-none-eabi-gcc
       if: ${{inputs.name}} == StateOS
       uses: ./ref_actions_repo/.github/actions/action_install_arm-none-eabi-gcc
       with:
         arm_version: ${{ inputs.arm_version}}
+
     - name: check arm-none-eabi-gcc version
       uses: ./ref_actions_repo/.github/actions/action_check_installs
+
     - name: make test
       uses: ./ref_actions_repo/.github/actions/action_make_build
     

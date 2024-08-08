@@ -27,16 +27,19 @@ jobs:
       uses: ./.github/actions/action_checkout_submodul
 
     - name: Checkout actions repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with: 
         repository: MertensFlo/StateOS_BA
         path: ref_actions_repo
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
           .github/actions
+        sparse-checkout-cone-mode: false
     - name:
       run: |
         cd ref_actions_repo
+        ls
+        cd .github
         ls
     - name: install dependencies
       uses: ./ref_actions_repo/action_install_dependencies

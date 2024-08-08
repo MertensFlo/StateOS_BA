@@ -24,8 +24,6 @@ jobs:
         path: current_workflows
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          '.github'
-          .github
           workflows
         sparse-checkout-cone-mode: false
           

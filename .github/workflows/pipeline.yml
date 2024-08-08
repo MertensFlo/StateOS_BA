@@ -22,7 +22,9 @@ jobs:
       with: 
         repository: MertensFlo/StateOS_BA
         ref: ${{ inputs.workingBranch }}
-
+    - name: validate checkout
+      run: |
+        ls
     - name: call reuseable pipeline
       uses: ./.github/workflows/reuseable_build.yml
       with:

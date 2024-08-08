@@ -40,7 +40,7 @@ jobs:
       current_test_element: example
 
   call-static-code-test:
-    needs: call-example
+    needs: call-build
     if: ${{inputs.static_test}}
     uses: ./.github/workflows/test.yml
     with:
@@ -50,7 +50,7 @@ jobs:
       current_test_element: static
 
   call-unit-test:
-    needs: call-static-code-test
+    needs: call-build
     if: ${{inputs.unit_test}}
     uses: ./.github/workflows/test.yml
     with:

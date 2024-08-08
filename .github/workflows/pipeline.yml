@@ -24,6 +24,7 @@ jobs:
         ref: ${{ inputs.workingBranch }}
     - name: validate checkout
       run: |
+        pwd
         cd .github
         ls  
         cd workflows

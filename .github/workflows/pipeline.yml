@@ -20,25 +20,27 @@ jobs:
     - name: setup
       run: |
         mkdir .github
-        mkdir .github\current_workflows
         ls
+
     - name: Checkout actions repo
       uses: actions/checkout@v3
       with: 
         repository: MertensFlo/StateOS_BA
-        path: .github/current_workflows
+        path: workflows
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          .github\workflows
-    - name:
+          .github
+        sparse-checkout-cone-mode: false
+          
+    - name: validate
       run: |
-        cd .github/current_workflows
+        cd .github
         ls
-        cd ../../
+        cd ../
         ls
 
     - name: call reuseable pipeline
-      uses: ./.github/current_workflows/build_test.yml
+      uses: ./workflows/workflows/build_test.yml
       with:
         name: ${{inputs.name}}
         buildSystem: ${{inputs.buildSystem}}

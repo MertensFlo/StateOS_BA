@@ -1,8 +1,15 @@
+inputs:
+  flag_ninja:
+    default: false
+    type: boolean
+
 runs:
   using: composite
   steps:
-  - name: make test
+  - if: ${{inputs.flag_ninja}}
+    name: cmake ninja
     shell: bash
-    run: |
-      cmake -S. -Bbuild -GNinja
-      cmake --build build -v
+    run: cmake -S. -Bbuild -GNinja
+  - name: make build
+    shell: bash
+    run: cmake --build build -v

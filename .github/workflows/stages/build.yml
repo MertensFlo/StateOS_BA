@@ -24,6 +24,16 @@ on:
       arm_version:
         default: 11.3.rel1
         type: string
+      flag_arm:
+        default: false
+        type: boolean
+      flag_submodule:
+        default: false
+        type: boolean
+      flag_ninja:
+        default: false
+        type: boolean
+
   
 jobs:
   build:
@@ -34,7 +44,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
-        submodules: 'true'
+        submodules: ${{inputs.flag_submodule}}
     #- name: Uses checkout submodules
     #  uses: ./.github/actions/action_checkout_submodul
 
@@ -50,18 +60,25 @@ jobs:
 
     - name: install dependencies
       uses: ./ref_actions_repo/.github/actions/universal/action_install_dependencies
+      with: 
+        flag_ninja: ${{inputs.flag_ninja}}
 
     - name: build specific
       if: ${{inputs.workingRepo}} == StateOS_BA
       #uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
       #with:
       #  arm_version: ${{ inputs.arm_version}}
+      #  flag_arm: ${{inputs.flag_arm}}
       run: echo build specific
 
-    - name: checks
+    - name: check installs
       uses: ./ref_actions_repo/.github/actions/universal/action_checks
+      with:
+        flag_arm: ${{inputs.flag_arm}}
 
     - name: make build
       #uses: ./ref_actions_repo/.github/actions/build/action_make_build
+      #with:
+      #  flag_ninja: ${{inputs.flag_ninja}}
       run: echo building
     

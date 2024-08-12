@@ -15,12 +15,27 @@ on:
       workingOrg:
         default: MertensFlo
         type: string
+      callerRepo:
+        default: StateOS_BA
+        type: string
+      callerOrg:
+        default: MertensFlo
+        type: string
       arm_version:
         default: 11.3.rel1
         type: string
       current_test_element:
         type: string
-
+      flag_arm:
+        default: false
+        type: boolean
+      flag_submodule:
+        default: false
+        type: boolean
+      flag_ninja:
+        default: false
+        type: boolean
+      
 jobs:
   example:
     name: test-${{inputs.current_test_element}}
@@ -29,7 +44,8 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v4
         with: 
-          submodules: true
+          repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
+          submodules: ${{inputs.flag_submodule}}
       #- name: Uses checkout submodules
       #  uses: ./.github/actions/action_checkout_submodul
 
@@ -43,23 +59,25 @@ jobs:
             .github/actions
           sparse-checkout-cone-mode: false
 
-      - name: test specific comands
-        if: ${{inputs.workingRepo}} == StateOS_BA
+      - name: build specific commands
         #uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
         #with:
         #  arm_version: ${{ inputs.arm_version}}
-        run: echo specific commands
+        #  flag_arm: ${{inputs.flag_arm}}
+        run: echo build specific
   
-      - name: checks
+      - name: check installs
         uses: ./ref_actions_repo/.github/actions/universal/action_checks
+        with:
+          flag_arm: ${{inputs.flag_arm}}
 
       - name: make example test
-        if: ${{inputs.current_test_element == 'example' && true}}
+        if: ${{inputs.current_test_element == 'example'}}
         #uses: ./ref_actions_repo/.github/actions/test/action_example_test
         run: echo example
 
       - name: make static test
-        if: ${{inputs.current_test_element == 'static' || false}}
+        if: ${{inputs.current_test_element == 'static'}}
         #uses: ./ref_actions_repo/.github/actions/test/action_static_code_test
         run: echo static
         

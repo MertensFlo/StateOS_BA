@@ -16,6 +16,12 @@ jobs:
       workingBranch: Testing_workflows
       workingRepo: StateOS_BA
       workingOrg: MertensFlo
+      callerRepo: StateOS_BA
+      callerOrg: MertensFlo
+      arm_version: 11.3.rel1
+      flag_arm: true
+      flag_submodule: true
+      flag_ninja: true
       example_test: true
       static_test: true
       unit_test: true

@@ -10,9 +10,29 @@ on:
         default: Testing_workflows
         type: string
       workingRepo:
+        default: StateOS_BA
         type: string
       workingOrg:
+        default: MertensFlo
         type: string
+      callerRepo:
+        default: StateOS_BA
+        type: string
+      callerOrg:
+        default: MertensFlo
+        type: string
+      arm_version:
+        default: 11.3.rel1
+        type: string
+      flag_arm:
+        default: false
+        type: boolean
+      flag_submodule:
+        default: false
+        type: boolean
+      flag_ninja:
+        default: false
+        type: boolean
       example_test:
         default: false
         type: boolean
@@ -31,6 +51,12 @@ jobs:
       workingBranch: ${{inputs.workingBranch}}
       workingRepo: ${{inputs.workingRepo}}
       workingOrg: ${{inputs.workingOrg}}
+      callerRepo: ${{inputs.callerRepo}}
+      callerOrg: ${{inputs.callerOrg}}
+      arm_version: ${{inputs.arm_version}}
+      flag_arm: ${{inputs.flag_arm}}
+      flag_submodule: ${{inputs.flag_submodule}}
+      flag_ninja: ${{inputs.flag_ninja}}
 
   call-example:
     needs: call-build
@@ -41,6 +67,12 @@ jobs:
       workingBranch: ${{inputs.workingBranch}}
       workingRepo: ${{inputs.workingRepo}}
       workingOrg: ${{inputs.workingOrg}}
+      callerRepo: ${{inputs.callerRepo}}
+      callerOrg: ${{inputs.callerOrg}}
+      arm_version: ${{inputs.arm_version}}
+      flag_arm: ${{inputs.flag_arm}}
+      flag_submodule: ${{inputs.flag_submodule}}
+      flag_ninja: ${{inputs.flag_ninja}}
       current_test_element: example
 
   call-static-code-test:
@@ -52,6 +84,12 @@ jobs:
       workingBranch: ${{inputs.workingBranch}}
       workingRepo: ${{inputs.workingRepo}}
       workingOrg: ${{inputs.workingOrg}}
+      callerRepo: ${{inputs.callerRepo}}
+      callerOrg: ${{inputs.callerOrg}}
+      arm_version: ${{inputs.arm_version}}
+      flag_arm: ${{inputs.flag_arm}}
+      flag_submodule: ${{inputs.flag_submodule}}
+      flag_ninja: ${{inputs.flag_ninja}}
       current_test_element: static
 
   call-unit-test:
@@ -63,4 +101,10 @@ jobs:
       workingBranch: ${{inputs.workingBranch}}
       workingRepo: ${{inputs.workingRepo}}
       workingOrg: ${{inputs.workingOrg}}
+      callerRepo: ${{inputs.callerRepo}}
+      callerOrg: ${{inputs.callerOrg}}
+      arm_version: ${{inputs.arm_version}}
+      flag_arm: ${{inputs.flag_arm}}
+      flag_submodule: ${{inputs.flag_submodule}}
+      flag_ninja: ${{inputs.flag_ninja}}
       current_test_element: unit

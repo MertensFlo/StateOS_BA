@@ -25,7 +25,7 @@ on:
   
 jobs:
   call-build:
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/stages/build.yml
     with:
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
@@ -35,7 +35,7 @@ jobs:
   call-example:
     needs: call-build
     if: ${{inputs.example_test}}
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/stages/test.yml
     with:
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
@@ -46,7 +46,7 @@ jobs:
   call-static-code-test:
     needs: call-build
     if: ${{inputs.static_test}}
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/stages/test.yml
     with:
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}
@@ -57,7 +57,7 @@ jobs:
   call-unit-test:
     needs: call-build
     if: ${{inputs.unit_test}}
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/stages/test.yml
     with:
       buildSystem: ${{inputs.buildSystem}}
       workingBranch: ${{inputs.workingBranch}}

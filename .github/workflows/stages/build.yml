@@ -49,17 +49,19 @@ jobs:
         sparse-checkout-cone-mode: false
 
     - name: install dependencies
-      uses: ./ref_actions_repo/.github/actions/action_install_dependencies
+      uses: ./ref_actions_repo/.github/actions/universal/action_install_dependencies
 
     - name: build specific
       if: ${{inputs.workingRepo}} == StateOS_BA
-      uses: ./ref_actions_repo/.github/actions/action_build_specific_commands
-      with:
-        arm_version: ${{ inputs.arm_version}}
+      #uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
+      #with:
+      #  arm_version: ${{ inputs.arm_version}}
+      run: echo build specific
 
     - name: checks
-      uses: ./ref_actions_repo/.github/actions/action_checks
+      uses: ./ref_actions_repo/.github/actions/universal/action_checks
 
     - name: make build
-      uses: ./ref_actions_repo/.github/actions/action_make_build
+      #uses: ./ref_actions_repo/.github/actions/build/action_make_build
+      run: echo building
     

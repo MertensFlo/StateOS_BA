@@ -45,24 +45,25 @@ jobs:
 
       - name: test specific comands
         if: ${{inputs.workingRepo}} == StateOS_BA
-        uses: ./ref_actions_repo/.github/actions/action_build_specific_commands
-        with:
-          arm_version: ${{ inputs.arm_version}}
+        #uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
+        #with:
+        #  arm_version: ${{ inputs.arm_version}}
+        run: echo specific commands
   
       - name: checks
-        uses: ./ref_actions_repo/.github/actions/action_checks
+        uses: ./ref_actions_repo/.github/actions/universal/action_checks
 
       - name: make example test
         if: ${{inputs.current_test_element == 'example' && true}}
-        #uses: ./ref_actions_repo/.github/actions/action_example_test
+        #uses: ./ref_actions_repo/.github/actions/test/action_example_test
         run: echo example
 
       - name: make static test
         if: ${{inputs.current_test_element == 'static' || false}}
-        #uses: ./ref_actions_repo/.github/actions/action_static_code_test
+        #uses: ./ref_actions_repo/.github/actions/test/action_static_code_test
         run: echo static
         
       - name: make unit test
         if: ${{inputs.current_test_element == 'unit'}}
-        #uses: ./ref_actions_repo/.github/actions/action_unit_test
+        #uses: ./ref_actions_repo/.github/actions/test/action_unit_test
         run: echo unit

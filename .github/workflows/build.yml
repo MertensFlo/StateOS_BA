@@ -45,8 +45,6 @@ jobs:
       with:
         repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
         submodules: ${{inputs.flag_submodule}}
-    #- name: Uses checkout submodules
-    #  uses: ./.github/actions/action_checkout_submodul
 
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4
@@ -65,11 +63,10 @@ jobs:
 
     - name: build specific
       if: ${{inputs.workingRepo}} == StateOS_BA
-      #uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
-      #with:
-      #  arm_version: ${{ inputs.arm_version}}
-      #  flag_arm: ${{inputs.flag_arm}}
-      run: echo build specific
+      uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
+      with:
+        arm_version: ${{ inputs.arm_version}}
+        flag_arm: ${{inputs.flag_arm}}
 
     - name: check installs
       uses: ./ref_actions_repo/.github/actions/universal/action_check_installs
@@ -77,8 +74,8 @@ jobs:
         flag_arm: ${{inputs.flag_arm}}
 
     - name: make build
-      #uses: ./ref_actions_repo/.github/actions/build/action_make_build
-      #with:
-      #  flag_ninja: ${{inputs.flag_ninja}}
-      run: echo building
+      uses: ./ref_actions_repo/.github/actions/build/action_make_build
+      with:
+        flag_ninja: ${{inputs.flag_ninja}}
+
     

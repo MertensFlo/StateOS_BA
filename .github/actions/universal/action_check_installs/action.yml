@@ -9,4 +9,4 @@ runs:
   - if: ${{inputs.flag_arm}}
     name:
     shell: bash
-    run: echo arm-none-eabi-gcc -v
+    run: arm-none-eabi-gcc -v

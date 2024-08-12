@@ -13,6 +13,3 @@ runs:
   - name: make build
     shell: bash
     run: cmake --build build -v
-  - name: test
-    shell: bash
-    run: echo hallihallo

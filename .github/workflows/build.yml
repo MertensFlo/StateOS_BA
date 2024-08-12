@@ -63,25 +63,25 @@ jobs:
         submodules: ${{inputs.flag_submodule}}
 
     - name: install dependencies
-      uses: ./ref_actions_repo/.github/actions/universal/action_install_dependencies
+      uses: ./.github/actions/universal/action_install_dependencies
       with: 
         flag_ninja: ${{inputs.flag_ninja}}
         cmake_version: ${{inputs.cmake_version}}
 
     - name: build specific
       if: ${{inputs.workingRepo}} == StateOS_BA
-      uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
+      uses: ./.github/actions/universal/action_build_specific_commands
       with:
         arm_version: ${{ inputs.arm_version}}
         flag_arm: ${{inputs.flag_arm}}
 
     - name: check installs
-      uses: ./ref_actions_repo/.github/actions/universal/action_check_installs
+      uses: ./.github/actions/universal/action_check_installs
       with:
         flag_arm: ${{inputs.flag_arm}}
 
     - name: make build
-      uses: ./ref_actions_repo/.github/actions/build/action_make_build
+      uses: ./.github/actions/build/action_make_build
       with:
         flag_ninja: ${{inputs.flag_ninja}}
 

@@ -58,24 +58,24 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: build specific commands
-        uses: ./ref_actions_repo/.github/actions/universal/action_build_specific_commands
+        uses: ./.github/actions/universal/action_build_specific_commands
         with:
           arm_version: ${{ inputs.arm_version}}
           flag_arm: ${{inputs.flag_arm}}
   
       - name: check installs
-        uses: ./ref_actions_repo/.github/actions/universal/action_check_installs
+        uses: ./.github/actions/universal/action_check_installs
         with:
           flag_arm: ${{inputs.flag_arm}}
 
       - name: make example test
         if: ${{inputs.current_test_element == 'example'}}
-        uses: ./ref_actions_repo/.github/actions/test/action_example_test
+        uses: ./.github/actions/test/action_example_test
 
       - name: make static test
         if: ${{inputs.current_test_element == 'static'}}
-        uses: ./ref_actions_repo/.github/actions/test/action_static_code_test
+        uses: ./.github/actions/test/action_static_code_test
         
       - name: make unit test
         if: ${{inputs.current_test_element == 'unit'}}
-        uses: ./ref_actions_repo/.github/actions/test/action_unit_test
+        uses: ./.github/actions/test/action_unit_test

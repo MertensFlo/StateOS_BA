@@ -6,7 +6,7 @@ inputs:
 runs:
   using: composite
   steps:
-  - it: ${{inputs.flag_arm}}
+  - if: ${{inputs.flag_arm}}
     name:
     shell: bash
     run: arm-none-eabi-gcc -v

@@ -13,7 +13,7 @@ jobs:
     uses: MertensFlo/StateOS_BA/.github/workflows/pipeline.yml@Testing_workflows
     with:
       buildSystem: ubuntu-latest
-      workingBranch: generic_pipeline
+      workingBranch: Testing_workflows
       workingRepo: StateOS_BA
       workingOrg: MertensFlo
       callerBranch: Testing_workflows

@@ -72,7 +72,7 @@ jobs:
       run: echo build specific
 
     - name: check installs
-      uses: ./ref_actions_repo/.github/actions/universal/action_checks
+      uses: ./ref_actions_repo/.github/actions/universal/action_check_installs
       with:
         flag_arm: ${{inputs.flag_arm}}
 

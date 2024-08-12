@@ -15,6 +15,9 @@ on:
       workingOrg:
         default: MertensFlo
         type: string
+      callerBranch:
+        default: Testing_workflows
+        type: string
       callerRepo:
         default: StateOS_BA
         type: string
@@ -23,6 +26,9 @@ on:
         type: string
       arm_version:
         default: 11.3.rel1
+        type: string
+      cmake_version:
+        default: cmake
         type: string
       flag_arm:
         default: false
@@ -51,9 +57,11 @@ jobs:
       workingBranch: ${{inputs.workingBranch}}
       workingRepo: ${{inputs.workingRepo}}
       workingOrg: ${{inputs.workingOrg}}
+      callerBranch: ${{inputs.callerBranch}}
       callerRepo: ${{inputs.callerRepo}}
       callerOrg: ${{inputs.callerOrg}}
       arm_version: ${{inputs.arm_version}}
+      cmake_version: ${{inputs.cmake_version}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}

@@ -13,12 +13,14 @@ jobs:
     uses: MertensFlo/StateOS_BA/.github/workflows/pipeline.yml@Testing_workflows
     with:
       buildSystem: ubuntu-latest
-      workingBranch: Testing_workflows
+      workingBranch: generic_pipeline
       workingRepo: StateOS_BA
       workingOrg: MertensFlo
+      callerBranch: Testing_workflows
       callerRepo: StateOS_BA
       callerOrg: MertensFlo
       arm_version: 11.3.rel1
+      cmake_version: cmake
       flag_arm: true
       flag_submodule: true
       flag_ninja: true

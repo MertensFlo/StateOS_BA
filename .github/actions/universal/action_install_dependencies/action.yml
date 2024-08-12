@@ -2,6 +2,8 @@ inputs:
   flag_ninja:
     default: false
     type: boolean
+  cmake_version:
+    type: string
     
 runs:
   using: composite
@@ -11,7 +13,7 @@ runs:
     run: |
       sudo apt-get -y -qq update
   - if: ${{inputs.flag_ninja}}
-    name: install cmake
+    name: install ${{cmake_version}}
     shell: bash
-    run: sudo apt-get -y -qq install cmake ninja-build
+    run: sudo apt-get -y -qq install ${{cmake_version}} ninja-build
     

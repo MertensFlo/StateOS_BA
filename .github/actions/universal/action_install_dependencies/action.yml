@@ -13,7 +13,7 @@ runs:
     run: |
       sudo apt-get -y -qq update
   - if: ${{inputs.flag_ninja}}
-    name: install ${{cmake_version}}
+    name: install ${{inputs.cmake_version}}
     shell: bash
-    run: sudo apt-get -y -qq install ${{cmake_version}} ninja-build
+    run: sudo apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
     

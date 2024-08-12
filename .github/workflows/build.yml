@@ -15,6 +15,12 @@ on:
       workingOrg:
         default: MertensFlo
         type: string
+      callerRepo:
+        default: StateOS_BA
+        type: string
+      callerOrg:
+        default: MertensFlo
+        type: string
       arm_version:
         default: 11.3.rel1
         type: string
@@ -26,7 +32,8 @@ jobs:
     steps:
     - name: checkout repository
       uses: actions/checkout@v4
-      with: 
+      with:
+        repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
         submodules: 'true'
     #- name: Uses checkout submodules
     #  uses: ./.github/actions/action_checkout_submodul

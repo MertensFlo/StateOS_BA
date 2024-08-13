@@ -50,6 +50,8 @@ on:
       flag_cmake_build:
         default: false
         type: boolean
+      build:
+        type: boolean
       example_test:
         default: false
         type: boolean
@@ -62,6 +64,7 @@ on:
   
 jobs:
   call-build:
+    if: ${{inputs.build}}
     uses: ./.github/workflows/build.yml
     with:
       buildSystem: ${{inputs.buildSystem}}
@@ -82,7 +85,6 @@ jobs:
       flag_cmake_build: ${{inputs.flag_cmake_build}}
 
   call-example:
-    needs: call-build
     if: ${{inputs.example_test}}
     uses: ./.github/workflows/test.yml
     with:
@@ -102,7 +104,6 @@ jobs:
       current_test_element: example
 
   call-static-code-test:
-    needs: call-build
     if: ${{inputs.static_test}}
     uses: ./.github/workflows/test.yml
     with:
@@ -122,7 +123,6 @@ jobs:
       current_test_element: static
 
   call-unit-test:
-    needs: call-build
     if: ${{inputs.unit_test}}
     uses: ./.github/workflows/test.yml
     with:

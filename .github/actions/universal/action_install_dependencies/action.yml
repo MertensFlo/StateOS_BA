@@ -11,10 +11,6 @@ runs:
   - name: install ${{inputs.cmake_version}}
     shell: bash
     run: |
-      ls
-      echo $PWD
-      cd ${{github.action_path}}
-      ls
       bash ${{github.action_path}}/install_dependencies.sh ${{inputs.flag_ninja}} ${{inputs.cmake_version}}
 
     

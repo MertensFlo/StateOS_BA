@@ -46,13 +46,12 @@ jobs:
     name: build test
     runs-on: ${{ (inputs.buildSystem)}}
     steps:
-    - name: Checkout actions repo for wanted branch
+    - name: checkout repository
       uses: actions/checkout@v4
-      with: 
-        repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
-        ref: ${{inputs.workingBranch}}
-        sparse-checkout: .github//actions//universal//action_check_installs
-        sparse-checkout-cone-mode: true
+      with:
+        repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
+        ref: ${{ inputs.callerBranch }}
+        submodules: ${{inputs.flag_submodule}}
 
     - name: test checkout
       run: |
@@ -64,12 +63,13 @@ jobs:
         cd universal
         ls
 
-    - name: checkout repository
+    - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4
-      with:
-        repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
-        ref: ${{ inputs.callerBranch }}
-        submodules: ${{inputs.flag_submodule}}
+      with: 
+        repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
+        ref: ${{inputs.workingBranch}}
+        sparse-checkout: .github//actions//universal//action_check_installs
+        sparse-checkout-cone-mode: true
 
     - name: test checkout
       run: |

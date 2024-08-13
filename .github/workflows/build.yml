@@ -53,16 +53,6 @@ jobs:
         ref: ${{ inputs.callerBranch }}
         submodules: ${{inputs.flag_submodule}}
 
-    - name: test checkout
-      run: |
-        ls
-        cd .github
-        ls
-        cd actions
-        ls
-        cd universal
-        ls
-
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4
       with: 
@@ -71,15 +61,6 @@ jobs:
         path: ref_action
         sparse-checkout: .github/actions
         sparse-checkout-cone-mode: true
-
-    - name: test checkout
-      run: |
-        cd .github
-        ls
-        cd actions
-        ls
-        cd universal
-        ls
 
     - name: install dependencies
       uses: ./.github/actions/universal/action_install_dependencies

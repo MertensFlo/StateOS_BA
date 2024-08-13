@@ -65,6 +65,12 @@ jobs:
             .github/actions
           sparse-checkout-cone-mode: false
 
+      - name: install dependencies
+        uses: ./.github/actions/universal/action_install_dependencies
+        with: 
+          flag_ninja: ${{inputs.flag_ninja}}
+          cmake_version: false
+          
       - name: build specific commands
         uses: ./.github/actions/universal/action_build_specific_commands
         with:

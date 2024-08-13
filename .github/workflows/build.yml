@@ -85,8 +85,7 @@ jobs:
       with:
         flag_arm: ${{inputs.flag_arm}}
 
-    - if: false
-      name: make build
+    - name: make build
       uses: ./.github/actions/build/action_make_build
       with:
         flag_ninja: ${{inputs.flag_ninja}}

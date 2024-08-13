@@ -53,8 +53,11 @@ jobs:
         ref: ${{ inputs.callerBranch }}
         submodules: ${{inputs.flag_submodule}}
     - run: |
-        cd .github/actions/universal
+        cd .github
         ls
+        cd actions
+        ls
+        cd universal
     
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4

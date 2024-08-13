@@ -52,7 +52,7 @@ jobs:
         repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          .github/workflows
+          .github
         sparse-checkout-cone-mode: false
         
     - name: checkout repository

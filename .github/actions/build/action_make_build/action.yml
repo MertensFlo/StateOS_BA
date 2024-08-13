@@ -6,10 +6,6 @@ inputs:
 runs:
   using: composite
   steps:
-  - if: ${{inputs.flag_ninja}}
-    name: cmake ninja
-    shell: bash
-    run: cmake -S. -Bbuild -GNinja
   - name: make build
     shell: bash
-    run: cmake --build build -v
+    run: ./scripts/make_build.sh ${{inputs.flag_ninja}}

@@ -4,4 +4,4 @@ runs:
   - name: make test
     shell: bash
     run: |
-      bash ./.example-test.sh
+      bash ./scripts/example_test.sh true

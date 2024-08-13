@@ -4,4 +4,4 @@ runs:
   - name: make test
     shell: bash
     run: |
-      make all -f .unit-test.make
+      bash ./scripts/make_unit_test.sh true

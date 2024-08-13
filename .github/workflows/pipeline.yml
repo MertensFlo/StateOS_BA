@@ -24,8 +24,14 @@ on:
       callerOrg:
         default: MertensFlo
         type: string
-      arm_version:
-        default: 11.3.rel1
+      arm_path:
+        default: https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
+        type: string
+      arm_tar_path:
+        default: arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
+        type: string
+      arm_dir_path:
+        default: ${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin
         type: string
       cmake_version:
         default: cmake
@@ -60,7 +66,9 @@ jobs:
       callerBranch: ${{inputs.callerBranch}}
       callerRepo: ${{inputs.callerRepo}}
       callerOrg: ${{inputs.callerOrg}}
-      arm_version: ${{inputs.arm_version}}
+      arm_path: ${{inputs.arm_path}}
+      arm_tar_path: ${{inputs.arm_tar_path}}
+      arm_dir_path: ${{inputs.arm_dir_path}}
       cmake_version: ${{inputs.cmake_version}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
@@ -77,7 +85,9 @@ jobs:
       workingOrg: ${{inputs.workingOrg}}
       callerRepo: ${{inputs.callerRepo}}
       callerOrg: ${{inputs.callerOrg}}
-      arm_version: ${{inputs.arm_version}}
+      arm_path: ${{inputs.arm_path}}
+      arm_tar_path: ${{inputs.arm_tar_path}}
+      arm_dir_path: ${{inputs.arm_dir_path}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}
@@ -94,7 +104,9 @@ jobs:
       workingOrg: ${{inputs.workingOrg}}
       callerRepo: ${{inputs.callerRepo}}
       callerOrg: ${{inputs.callerOrg}}
-      arm_version: ${{inputs.arm_version}}
+      arm_path: ${{inputs.arm_path}}
+      arm_tar_path: ${{inputs.arm_tar_path}}
+      arm_dir_path: ${{inputs.arm_dir_path}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}
@@ -111,7 +123,9 @@ jobs:
       workingOrg: ${{inputs.workingOrg}}
       callerRepo: ${{inputs.callerRepo}}
       callerOrg: ${{inputs.callerOrg}}
-      arm_version: ${{inputs.arm_version}}
+      arm_path: ${{inputs.arm_path}}
+      arm_tar_path: ${{inputs.arm_tar_path}}
+      arm_dir_path: ${{inputs.arm_dir_path}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}

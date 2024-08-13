@@ -53,6 +53,14 @@ jobs:
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
           .github/workflows
+        sparse-checkout-cone-mode: false
+
+    - name: Checkout actions repo for wanted branch
+      uses: actions/checkout@v4
+      with: 
+        repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
+        ref: ${{ inputs.workingBranch }}
+        sparse-checkout: |
           .github/actions/universal/action_check_installs
         sparse-checkout-cone-mode: false
 

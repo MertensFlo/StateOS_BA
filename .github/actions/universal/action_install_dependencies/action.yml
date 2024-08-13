@@ -18,10 +18,10 @@ runs:
     run: sudo apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
   - shell: bash
     run: |
-      ls -d -- */
+      ls -d
   - shell: bash
     run: |
       cd .github/actions
-      ls -d -- */
+      ls -d
   
     

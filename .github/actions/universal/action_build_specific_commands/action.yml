@@ -18,5 +18,6 @@ runs:
   steps: 
   - if: ${{inputs.flag_arm}}
     name: execute script
+    work
     shell: bash
     run: bash ./install_pipeline_specific.sh ${{inputs.arm_path}} ${{inputs.arm_tar_path}} ${{inputs.arm_dir_path}}

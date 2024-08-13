@@ -13,4 +13,16 @@ runs:
       sudo apt-get update
       sudo apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
     shell: bash
+
+  - name: install ${{inputs.cmake_version}}
+    shell: bash
+    working-directory: ./scripts
+    run: |
+      bash ./install_dependencies.sh ${{inputs.flag_ninja}} ${{inputs.cmake_version}}
+
+  - name: install ${{inputs.cmake_version}}
+    shell: bash
+    run: |
+      bash ${{github.action_path}}/install_dependencies.sh ${{inputs.flag_ninja}} ${{inputs.cmake_version}}
+
     

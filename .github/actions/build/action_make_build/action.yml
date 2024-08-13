@@ -8,4 +8,4 @@ runs:
   steps:
   - name: make build
     shell: bash
-    run: ./scripts/make_build.sh ${{inputs.flag_ninja}}
+    run: bash ./scripts/make_build.sh ${{inputs.flag_ninja}}

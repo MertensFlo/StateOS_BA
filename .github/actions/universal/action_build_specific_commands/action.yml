@@ -1,12 +1,9 @@
 inputs:
   arm_path:
-    default: https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
     type: string
   arm_tar_path:
-    default: arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
     type: string
   arm_dir_path:
-    default: ${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin
     type: string
   flag_arm:
     default: false

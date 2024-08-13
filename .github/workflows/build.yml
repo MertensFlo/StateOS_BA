@@ -51,9 +51,8 @@ jobs:
       with: 
         repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
         ref: ${{inputs.workingBranch}}
-        sparse-checkout: |
-          .github\actions
-        sparse-checkout-cone-mode: false
+        sparse-checkout: .github\actions
+        sparse-checkout-cone-mode: true
 
     - name: test checkout
       run: |

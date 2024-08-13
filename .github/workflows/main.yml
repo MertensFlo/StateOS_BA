@@ -1,7 +1,7 @@
 name: CI
 
 on:
- # push:
+  push:
   pull_request:
   workflow_dispatch:
   repository_dispatch:
@@ -19,7 +19,7 @@ jobs:
       callerBranch: Testing_workflows
       callerRepo: StateOS_BA
       callerOrg: MertensFlo
-      arm_path: https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
+      arm_path: -q https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
       arm_tar_path: arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
       arm_dir_path: ${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin
       cmake_version: cmake

@@ -52,6 +52,9 @@ jobs:
         repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
         ref: ${{ inputs.callerBranch }}
         submodules: ${{inputs.flag_submodule}}
+    - run: |
+        cd .github/actions/universal
+        ls
     
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4
@@ -61,6 +64,10 @@ jobs:
         sparse-checkout: |
           .github\actions
         sparse-checkout-cone-mode: false
+
+    - run: |
+        cd .github/actions/universal
+        ls
 
     - name: install dependencies
       uses: ./.github/actions/universal/action_install_dependencies

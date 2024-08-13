@@ -8,13 +8,8 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: apt-get update
+  - name: install ${{inputs.cmake_version}}
     shell: bash
-    run: |
-      sudo apt-get -y -qq update
-  - if: ${{inputs.flag_ninja}}
-    name: install ${{inputs.cmake_version}}
-    shell: bash
-    run: sudo apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
+    run: ./scripts/install_dependencies.sh ${{inputs.flag_ninja}} ${{inputs.cmake_version}}
 
     

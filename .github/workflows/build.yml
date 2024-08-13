@@ -53,15 +53,6 @@ jobs:
         ref: ${{ inputs.callerBranch }}
         submodules: ${{inputs.flag_submodule}}
 
-    - name: Checkout actions repo for wanted branch
-      uses: actions/checkout@v4
-      with: 
-        repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
-        ref: ${{inputs.workingBranch}}
-        path: ref_action
-        sparse-checkout: .github/actions
-        sparse-checkout-cone-mode: true
-
     - name: install dependencies
       uses: ./.github/actions/universal/action_install_dependencies
       with: 

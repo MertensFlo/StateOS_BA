@@ -7,7 +7,5 @@ runs:
   using: composite
   steps:
   - if: ${{inputs.flag_arm}}
-    name:
     shell: bash
-    run: arm-none-eabi-gcc -v
-  - run: echo working
+    run: bash ./scripts/check_installs.sh

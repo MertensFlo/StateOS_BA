@@ -3,5 +3,6 @@ runs:
   steps:
   - name: make test
     shell: bash
+    working-directory: ./scripts
     run: |
       bash ./make_static_code_test.sh true

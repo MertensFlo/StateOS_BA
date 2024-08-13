@@ -8,4 +8,5 @@ runs:
   steps:
   - name: make build
     shell: bash
+    working-directory: ./scripts
     run: bash ./make_build.sh ${{inputs.flag_ninja}}

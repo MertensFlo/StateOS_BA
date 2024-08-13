@@ -67,5 +67,25 @@ jobs:
       with: 
         flag_ninja: ${{inputs.flag_ninja}}
         cmake_version: ${{inputs.cmake_version}}
+    
+    - name: build specific
+      if: ${{inputs.workingRepo}} == StateOS_BA
+      uses: ./.github/actions/universal/action_build_specific_commands
+      with:
+        arm_path: ${{inputs.arm_path}}
+        arm_tar_path: ${{inputs.arm_tar_path}}
+        arm_dir_path: ${{inputs.arm_dir_path}}
+        flag_arm: ${{inputs.flag_arm}}
+
+    - name: check installs
+      uses: ./.github/actions/universal/action_check_installs
+      with:
+        flag_arm: ${{inputs.flag_arm}}
+
+    - name: make build
+      uses: ./.github/actions/build/action_make_build
+      with:
+        flag_ninja: ${{inputs.flag_ninja}}
+        flag_cmake_build: ${{inputs.flag_cmake_build}}
 
     

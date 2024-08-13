@@ -13,7 +13,7 @@ runs:
     run: |
       ls
       echo $PWD
-      echo ${{GITHUB_WORKSPACE}}
-      bash ${{GITHUB_WORKSPACE}}/scripts/install_dependencies.sh ${{inputs.flag_ninja}} ${{inputs.cmake_version}}
+      echo ${{github.workspace}}
+      bash ${{github.workspace}}/scripts/install_dependencies.sh ${{inputs.flag_ninja}} ${{inputs.cmake_version}}
 
     

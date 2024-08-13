@@ -74,7 +74,7 @@ jobs:
       arm_path: ${{inputs.arm_path}}
       arm_tar_path: ${{inputs.arm_tar_path}}
       arm_dir_path: ${{inputs.arm_dir_path}}
-      arm_condtion: ${{inputs.arm_condition}}
+      arm_condition: ${{inputs.arm_condition}}
       cmake_version: ${{inputs.cmake_version}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
@@ -95,7 +95,7 @@ jobs:
       arm_path: ${{inputs.arm_path}}
       arm_tar_path: ${{inputs.arm_tar_path}}
       arm_dir_path: ${{inputs.arm_dir_path}}
-      arm_condtion: ${{inputs.arm_condition}}
+      arm_condition: ${{inputs.arm_condition}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}
@@ -115,7 +115,7 @@ jobs:
       arm_path: ${{inputs.arm_path}}
       arm_tar_path: ${{inputs.arm_tar_path}}
       arm_dir_path: ${{inputs.arm_dir_path}}
-      arm_condtion: ${{inputs.arm_condition}}
+      arm_condition: ${{inputs.arm_condition}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}
@@ -135,6 +135,7 @@ jobs:
       arm_path: ${{inputs.arm_path}}
       arm_tar_path: ${{inputs.arm_tar_path}}
       arm_dir_path: ${{inputs.arm_dir_path}}
+      arm_condition: ${{inputs.arm_condition}}
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}

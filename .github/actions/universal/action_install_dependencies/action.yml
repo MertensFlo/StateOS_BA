@@ -16,5 +16,9 @@ runs:
     name: install ${{inputs.cmake_version}}
     shell: bash
     run: sudo apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
-  - run: echo hallihallo stateOS
+  - shell: bash
+    run: |
+      echo hallihallo stateOS
+      ls
+      dir
     

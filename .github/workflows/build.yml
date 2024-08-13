@@ -54,6 +54,13 @@ jobs:
         sparse-checkout: |
           .github
         sparse-checkout-cone-mode: false
+        
+    - name: checkout repository
+      uses: actions/checkout@v4
+      with:
+        repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
+        ref: ${{ inputs.callerBranch }}
+        submodules: ${{inputs.flag_submodule}}
 
     - name: checkout repository
       uses: actions/checkout@v4

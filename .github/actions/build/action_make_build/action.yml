@@ -2,11 +2,14 @@ inputs:
   flag_ninja:
     default: false
     type: boolean
+  flag_ninja:
+    default: true
+    type: boolean
 
 runs:
   using: composite
   steps:
   - name: make build
     shell: bash
-    working-directory: ./scripts
-    run: bash ./make_build.sh ${{inputs.flag_ninja}}
+    working-directory: ./action_scripts
+    run: bash ./make_build.sh ${{inputs.flag_ninja}} ${{inputs.flag_cmake_build}}

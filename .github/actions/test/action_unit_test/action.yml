@@ -3,6 +3,6 @@ runs:
   steps:
   - name: make test
     shell: bash
-    working-directory: ./scripts
+    working-directory: ./action_scripts
     run: |
       bash ./make_unit_test.sh true

@@ -8,5 +8,5 @@ runs:
   steps:
   - if: ${{inputs.flag_arm}}
     shell: bash
-    working-directory: ./scripts
+    working-directory: ./action_scripts
     run: bash ./check_installs.sh

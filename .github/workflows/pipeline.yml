@@ -45,6 +45,9 @@ on:
       flag_ninja:
         default: false
         type: boolean
+      flag_cmake_build:
+        default: false
+        type: boolean
       example_test:
         default: false
         type: boolean
@@ -73,6 +76,7 @@ jobs:
       flag_arm: ${{inputs.flag_arm}}
       flag_submodule: ${{inputs.flag_submodule}}
       flag_ninja: ${{inputs.flag_ninja}}
+      flag_cmake_build: ${{inputs.flag_cmake_build}}
 
   call-example:
     needs: call-build

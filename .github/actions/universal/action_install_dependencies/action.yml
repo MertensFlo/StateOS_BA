@@ -10,7 +10,7 @@ runs:
   steps:
   - name: install ${{inputs.cmake_version}}
     shell: bash
-    working-directory: ./scripts
+    working-directory: ./action_scripts
     run: |
       bash ./install_dependencies.sh ${{inputs.flag_ninja}} ${{inputs.cmake_version}}
 

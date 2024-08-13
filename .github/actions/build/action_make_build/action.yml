@@ -16,4 +16,4 @@ runs:
       echo $PWD
       cd ${{github.action_path}}
       ls
-      bash ${{github.action_path}}/make_build.sh ${{inputs.flag_ninja}} ${{inputs.flag_cmake_build}}
+  #bash ./make_build.sh ${{inputs.flag_ninja}} ${{inputs.flag_cmake_build}}

@@ -10,7 +10,7 @@ runs:
   steps:
   - if: ${{inputs.flag_ninja}}
     run: |
-      apt-get update
-      apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
+      sudo apt-get update
+      sudo apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
     shell: bash
     

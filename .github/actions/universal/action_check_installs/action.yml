@@ -8,4 +8,4 @@ runs:
   steps:
   - if: ${{inputs.flag_arm}}
     shell: bash
-    run: bash ./scripts/check_installs.sh
+    run: bash ./check_installs.sh

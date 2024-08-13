@@ -19,4 +19,4 @@ runs:
   - if: ${{inputs.flag_arm}}
     name: execute script
     shell: bash
-    run: bash ./scripts/install_pipeline_specific.sh ${{inputs.arm_path}} ${{inputs.arm_tar_path}} ${{inputs.arm_dir_path}}
+    run: bash ./install_pipeline_specific.sh ${{inputs.arm_path}} ${{inputs.arm_tar_path}} ${{inputs.arm_dir_path}}

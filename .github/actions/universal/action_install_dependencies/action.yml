@@ -12,5 +12,5 @@ runs:
     run: |
       apt-get update
       apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
-    shell: bashf
+    shell: bash
     

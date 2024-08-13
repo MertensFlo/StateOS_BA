@@ -11,5 +11,4 @@ runs:
   steps:
   - name: make build
     shell: bash
-    working-directory: ./action_scripts
-    run: bash ./make_build.sh ${{inputs.flag_ninja}} ${{inputs.flag_cmake_build}}
+    run: bash ./${{github.action_path}}/make_build.sh ${{inputs.flag_ninja}} ${{inputs.flag_cmake_build}}

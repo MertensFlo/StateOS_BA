@@ -3,6 +3,5 @@ runs:
   steps:
   - name: make test
     shell: bash
-    working-directory: ./action_scripts
     run: |
-      bash ./make_unit_test.sh true
+      bash ./${{github.action_path}}/make_unit_test.sh true

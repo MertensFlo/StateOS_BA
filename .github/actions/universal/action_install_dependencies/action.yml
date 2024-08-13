@@ -16,12 +16,5 @@ runs:
     name: install ${{inputs.cmake_version}}
     shell: bash
     run: sudo apt-get -y -qq install ${{inputs.cmake_version}} ninja-build
-  - shell: bash
-    run: |
-      ls
-  - shell: bash
-    run: |
-      cd .github/actions
-      ls
-  
+
     

@@ -52,7 +52,8 @@ jobs:
         repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
         ref: ${{ inputs.workingBranch }}
         sparse-checkout: |
-          .github
+          .github/workflows
+          .github/actions/action_check_installs
         sparse-checkout-cone-mode: false
 
     - name: checkout repository

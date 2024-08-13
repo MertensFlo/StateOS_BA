@@ -2,7 +2,7 @@ inputs:
   flag_ninja:
     default: false
     type: boolean
-  flag_ninja:
+  flag_cmake_build:
     default: true
     type: boolean
 

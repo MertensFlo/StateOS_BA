@@ -46,22 +46,7 @@ jobs:
     name: build test
     runs-on: ${{ (inputs.buildSystem)}}
     steps:
-    - name: Checkout actions repo for wanted branch
-      uses: actions/checkout@v4
-      with: 
-        repository: ${{inputs.workingOrg}}/${{inputs.workingRepo}}
-        ref: ${{ inputs.workingBranch }}
-        sparse-checkout: |
-          .github/workflows
-        sparse-checkout-cone-mode: false
 
-    - name: checkout repository
-      uses: actions/checkout@v4
-      with:
-        repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
-        ref: ${{ inputs.callerBranch }}
-        submodules: ${{inputs.flag_submodule}}
-    
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4
       with: 
@@ -70,6 +55,13 @@ jobs:
         sparse-checkout: |
           .github/actions/universal/action_check_installs
         sparse-checkout-cone-mode: false
+
+    - name: checkout repository
+      uses: actions/checkout@v4
+      with:
+        repository: ${{inputs.callerOrg}}/${{inputs.callerRepo}}
+        ref: ${{ inputs.callerBranch }}
+        submodules: ${{inputs.flag_submodule}}
 
     - name: install dependencies
       uses: ./.github/actions/universal/action_install_dependencies

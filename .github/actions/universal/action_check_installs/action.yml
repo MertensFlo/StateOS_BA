@@ -8,4 +8,4 @@ runs:
   steps:
   - if: ${{inputs.flag_arm}}
     shell: bash
-    run: bash ./${{github.action_path}}/check_installs.sh
+    run: bash ${{github.action_path}}/check_installs.sh

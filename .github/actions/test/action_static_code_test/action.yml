@@ -4,4 +4,4 @@ runs:
   - name: make test
     shell: bash
     run: |
-      bash ./${{github.action_path}}/make_static_code_test.sh true
+      bash ${{github.action_path}}/make_static_code_test.sh true

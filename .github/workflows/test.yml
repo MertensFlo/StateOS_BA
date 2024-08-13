@@ -34,6 +34,8 @@ on:
         type: string
       current_test_element:
         type: string
+      cmake_version:
+        type: string
       flag_arm:
         default: false
         type: boolean
@@ -69,8 +71,8 @@ jobs:
         uses: ./.github/actions/universal/action_install_dependencies
         with: 
           flag_ninja: ${{inputs.flag_ninja}}
-          cmake_version: false
-          
+          cmake_version: ${{inputs.cmake_version}}
+
       - name: build specific commands
         uses: ./.github/actions/universal/action_build_specific_commands
         with:

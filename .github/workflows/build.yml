@@ -58,6 +58,7 @@ jobs:
         cd actions
         ls
         cd universal
+        ls
     
     - name: Checkout actions repo for wanted branch
       uses: actions/checkout@v4

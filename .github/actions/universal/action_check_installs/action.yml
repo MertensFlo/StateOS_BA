@@ -10,3 +10,4 @@ runs:
     name:
     shell: bash
     run: arm-none-eabi-gcc -v
+  - run: echo working

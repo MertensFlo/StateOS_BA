@@ -30,6 +30,8 @@ on:
       arm_dir_path:
         default: ${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin
         type: string
+      arm_condition:
+        type: string
       current_test_element:
         type: string
       flag_arm:
@@ -70,6 +72,7 @@ jobs:
           arm_tar_path: ${{inputs.arm_tar_path}}
           arm_dir_path: ${{inputs.arm_dir_path}}
           flag_arm: ${{inputs.flag_arm}}
+          arm_condtion: ${{inputs.arm_condition}}
   
       - name: check installs
         uses: ./.github/actions/universal/action_check_installs

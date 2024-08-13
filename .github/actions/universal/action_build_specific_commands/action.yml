@@ -5,6 +5,8 @@ inputs:
     type: string
   arm_dir_path:
     type: string
+  arm_condition:
+    type: string
   flag_arm:
     default: false
     type: boolean
@@ -15,7 +17,7 @@ runs:
   steps: 
   - if: ${{inputs.flag_arm}}
     name: execute script
+    working-directory: /tmp
     shell: bash
     run: |
-      echo ${{inputs.arm_path}}
-      bash ${{github.action_path}}/install_pipeline_specific.sh ${{inputs.arm_path}} ${{inputs.arm_tar_path}} ${{inputs.arm_dir_path}}
+      bash ${{github.action_path}}/install_pipeline_specific.sh ${{inputs.arm_path}} ${{inputs.arm_tar_path}} ${{inputs.arm_dir_path}} ${{inputs.arm_condition}}

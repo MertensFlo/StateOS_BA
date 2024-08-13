@@ -33,6 +33,8 @@ on:
       arm_dir_path:
         default: ${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin
         type: string
+      arm_condition:
+        type: string
       cmake_version:
         default: cmake
         type: string
@@ -76,6 +78,7 @@ jobs:
         arm_tar_path: ${{inputs.arm_tar_path}}
         arm_dir_path: ${{inputs.arm_dir_path}}
         flag_arm: ${{inputs.flag_arm}}
+        arm_condtion: ${{inputs.arm_condition}}
 
     - name: check installs
       uses: ./.github/actions/universal/action_check_installs

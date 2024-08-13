@@ -22,6 +22,7 @@ jobs:
       arm_path: -q https://developer.arm.com/-/media/Files/downloads/gnu/11.3.rel1/binrel/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
       arm_tar_path: arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi.tar.xz
       arm_dir_path: ${{github.workspace}}/arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-eabi/bin
+      arm_condition: -qS
       cmake_version: cmake
       flag_arm: false
       flag_submodule: true
